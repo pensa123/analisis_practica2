@@ -15,8 +15,6 @@
 <script src="../Plantilla/js/tms_presets.js" type="text/javascript"></script>
 <script src="../Plantilla/js/jquery.easing.1.3.js" type="text/javascript"></script>
 <script src="../Plantilla/js/jquery.equalheights.js" type="text/javascript"></script>
-<!-- BOOTSTRAP STYLES-->
-    <link href="../Plantilla/assets/css/bootstrap.css" rel="stylesheet" />
 <!--[if lt IE 9]>
 <script type="text/javascript" src="js/html5.js"></script>
 <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
@@ -30,7 +28,25 @@
       <div class="main">
         <div class="wrapper">
           <h1><a href="index.html">Car Repair</a></h1>
+          <div class="fright">
+            <div class="indent"> <span class="address">8901 Marmora Road, Glasgow, D04 89GR</span> <span class="phone">Tel: +502 2265 5698</span> </div>
+          </div>
         </div>
+        <nav>
+          <ul class="menu">
+            <li><a class="active" href="index.php">Home</a></li>
+            <li><a href="Login.php">Login</a></li>
+          </ul>
+        </nav>
+        <div class="slider-wrapper">
+          <div class="slider">
+            <ul class="items">
+              <li> <img src="../Plantilla/images/slider-img1.jpg" alt="" /> </li>
+              <li> <img src="../Plantilla/images/slider-img2.jpg" alt="" /> </li>
+              <li> <img src="../Plantilla/images/slider-img3.jpg" alt="" /> </li>
+            </ul>
+          </div>
+          <a class="prev" href="#">prev</a> <a class="next" href="#">next</a> </div>
       </div>
     </header>
     <!--==============================content================================-->

@@ -1,6 +1,9 @@
 </div>
     </section>
     <!--==============================footer=================================-->
+    <footer>
+      <div class="main"> <span>Copyright &copy; <a href="#">Car Repair</a> </span> Grupo 5 Análisis y Diseño de Sistemas</div>
+    </footer>
   </div>
 </div>
 <script type="text/javascript">Cufon.now();</script>
@@ -21,14 +24,4 @@ $(window).load(function () {
 });
 </script>
 </body>
-  <!-- Footer -->
-<footer class="page-footer font-small blue">
-
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3" style="color:#FFFFFF;">Grupo 5 - Análisis y diseño
-  </div>
-  <!-- Copyright -->
-
-</footer>
-<!-- Footer -->
 </html>
