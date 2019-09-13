@@ -1,5 +1,5 @@
 <?php
-  include "Encabezado/arriba.php";
+  include "Encabezado/Principal/arriba.php";
 ?>
         <div class="container_12">
           <div class="wrapper p5">
@@ -104,5 +104,5 @@
           </div>
         </div>
 <?php
-  include "Encabezado/abajo.php";
+  include "Encabezado/Principal/abajo.php";
 ?>
