@@ -1,0 +1,16 @@
+En la tabla empleado tipo 1 para mecanico y 
+2 para admin
+en estado es 0 de vacaciones, 1 activo  y 
+2 despedido o inactivo
+
+En la tabla entrada vehiculo el estado determina: 
+-1 terminado, 0 no iniciado, 1 iniciado, 2 terminado y 
+3 entregado al cliente. 
+y en descripcion de esta tabla va lo que dice el cliente que 
+el carro teine para saber que hay que arreglar o que es lo que 
+hay que verle al carro. 
+
+en el detalle servicio se muestran los servicios que se 
+han realizado en la descripcion de este el mecanico 
+puede poner si hubieron inconvenientes en el servicio 
+o si encontro otras fallas o si todo esta en orden. 

@@ -34,7 +34,7 @@ CREATE TABLE vehiculo(
     anio_fabricacion int
 );
 
-CREATE TABLE servicio_vehiculo(
+CREATE TABLE entrada_vehiculo(
 	id int auto_increment primary key, 
     cliente bigint, 
     empleadoEncargado bigint,
@@ -50,13 +50,21 @@ CREATE TABLE servicio_vehiculo(
     foreign key(vehiculo) references vehiculo(placa)
 );
 
+CREATE TABLE servicio(
+	id int auto_increment primary key,
+    nombre varchar(30),
+    descripcion varchar(255)
+);
+
 CREATE TABLE detalleServicio(
 	id int auto_increment primary key, 
-    servicio_vehiculo int, 
+    entrada_vehiculo int, 
     mecanico bigint, 
-    servicio_realizado varchar(255), 
+    servicio int,
+    descripcion varchar(255), -- aparte de decir que servicio es, esto sirve para saber si hubo algun inconveniente o si todo salio bien
     fecha date,
-    foreign key(servicio_vehiculo) references servicio_vehiculo(id),
+    foreign key(servicio) references servicio(id),
+    foreign key(entrada_vehiculo) references entrada_vehiculo(id),
     foreign key(mecanico) references empleado(cui)
 );
 
