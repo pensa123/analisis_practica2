@@ -27,7 +27,7 @@
     <header>
       <div class="main">
         <div class="wrapper">
-          <h1><a href="index.html">Car Repair</a></h1>
+          <h1><a href="index.php">Car Repair</a></h1>
           <div class="fright">
             <div class="indent"> <span class="address">8901 Marmora Road, Glasgow, D04 89GR</span> <span class="phone">Tel: +502 2265 5698</span> </div>
           </div>
