@@ -4,7 +4,7 @@
 ?>
 
 <p style="text-align: center; font-size: 50px;"><span style="color: #ffffff;"><strong>Mec&aacute;nicos</strong></span></p>
-<a class="btn btn-success">+ Agregar Mecánico</a>
+<a class="btn btn-success" href="Mecanico-Create.php">+ Agregar Mecánico</a>
     
                   <!--   Kitchen Sink -->
                     <div class="panel panel-default">
