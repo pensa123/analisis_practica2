@@ -3,7 +3,13 @@ create database db_taller;
 use db_taller; 
 
 CREATE TABLE empleado(
-	cui bigint primary key, 
+	cui bigint primary key,
+    nombre varchar(255),
+    nickname varchar(255),
+    pass varchar(255),
+    correo varchar(255),
+    direccion varchar(255),
+    telefono varchar(255),
     nit varchar(30), 
     fechaContratacion date,
     tipo int,  -- 1 mecanico , 2 admin 
@@ -13,7 +19,11 @@ CREATE TABLE empleado(
 CREATE TABLE cliente(
 	cui BIGINT primary key,
     nombre varchar(255),
+    nickname varchar(255),
+    correo varchar(255),
+    pass varchar(255),
     direccion varchar(255),
+	telefono varchar(255),
     nit varchar(30)
 );
 
