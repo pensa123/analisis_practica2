@@ -29,15 +29,15 @@
     <header>
       <div class="main">
         <div class="wrapper">
-          <h1><a href="index.html">Car Repair</a></h1>
+          <h1><a href="index.php">Car Repair</a></h1>
           <div class="fright">
             <div class="indent"> <span class="address">Administrador</span> <span class="phone">Nombre del admin</span> </div>
           </div>
         </div>
         <nav>
           <ul class="menu">
-            <li><a class="active" href="index.html">Home</a></li>
-            <li><a href="">About Us</a></li>
+            <li><a class="active" href="index.php">Home</a></li>
+            <li><a href="Mecanico-Read.php">Mecánicos</a></li>
             <li><a href="">Maintenance </a></li>
             <li><a href="">Repair</a></li>
             <li><a href="">Price List</a></li>
