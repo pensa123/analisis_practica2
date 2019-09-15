@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
 <![endif]-->
 </head>
+<?php  ?>
 <body id="page1">
 <div class="main-bg">
   <div class="bg">
@@ -31,7 +32,7 @@
         <div class="wrapper">
           <h1><a href="index.html">Car Repair</a></h1>
           <div class="fright">
-            <div class="indent"> <span class="address">Mecánico</span> <span class="phone">Nombre del mecánico</span> </div>
+            <div class="indent"> <span class="address">Mecánico</span> <span class="phone"><?php session_start();echo $_SESSION['USER']; ?></span> </div>
           </div>
         </div>
         <nav>
