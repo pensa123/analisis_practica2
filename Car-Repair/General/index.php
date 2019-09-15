@@ -1,5 +1,6 @@
 <?php
   include "Encabezado/Principal/arriba.php";
+  session_destroy();
 ?>
         <div class="container_12">
           <div class="wrapper p5">
