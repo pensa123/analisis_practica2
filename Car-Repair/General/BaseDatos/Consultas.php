@@ -35,6 +35,7 @@ function UElemento($query){
   $cl=mysqli_fetch_array($res);
   return $cl[0];
 }
+/*
 function lista($consulta , $tittle){
 
   ?>
@@ -56,7 +57,7 @@ function lista($consulta , $tittle){
               /*if($contador==0){
               $contador=$contador+1;
               continue;
-            }*/
+            }
             printf("<td><h4>%s</h4></td>",   $valor->name);
             $ncolumnas++;
           }
@@ -105,7 +106,9 @@ function lista($consulta , $tittle){
 
 <?php
 }
+*/
 ?>
+
 <?php
 
 ?>
