@@ -48,6 +48,9 @@ function UElemento($query){
 }
 class Servicio{
   public function CrearServicio($nombre,$descripcion){
+    $consulta1="Select * from servicio where nombre=\"".$nombre."\";";
+    $res=Existe($consulta1);
+    if($res){return false;}
     $consulta="Insert into servicio(nombre,descripcion) values (\"".$nombre."\" ,\"".$descripcion."\");";
     $res=query($consulta);
     if($res==="algo salio mal"){

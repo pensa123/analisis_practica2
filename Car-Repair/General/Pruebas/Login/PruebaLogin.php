@@ -1,5 +1,5 @@
 <?php
-include (__DIR__."\..\..\BaseDatos\Consultas.php");
+include_once (__DIR__."\..\..\BaseDatos\Consultas.php");
 class PruebaLogin extends PHPUnit_Framework_TestCase
 {
   public function CorrerTodo(){
@@ -7,6 +7,7 @@ class PruebaLogin extends PHPUnit_Framework_TestCase
   }
   public function testLogin(){
     //usuario normal
+  
     $this->assertEquals(3,Loguear("marvin","123"));
     //Admin
     $this->assertEquals(2,Loguear("Admin1","123"));
