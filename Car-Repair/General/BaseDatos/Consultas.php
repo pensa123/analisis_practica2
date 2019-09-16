@@ -67,6 +67,11 @@ class Servicio{
     }
     return true;
   }
+  public function EliminarServicio($id){
+    $consulta="Delete from servicio where id=\"".$id."\";";
+    $res=query($consulta);
+    return true;
+  }
 }
 ?>
 

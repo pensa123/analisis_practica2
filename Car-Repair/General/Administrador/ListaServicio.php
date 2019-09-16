@@ -47,7 +47,7 @@ include "../BaseDatos/Consultas.php";
                     </div>
                     <div class="btn-group">
 
-                      <a href="#">
+                      <a href="EliminarServicio.php?id=<?php echo ($cl[0]); ?>">
                         <button type="button" class="btn btn-danger">
                           <span class="glyphicon glyphicon-trash"></span>
                         </button>
