@@ -58,6 +58,15 @@ class Servicio{
     }
     return true;
   }
+
+  public function ActualizarServicio($id,$nombre,$descripcion){
+    $consulta="Update servicio set nombre=\"".$nombre."\" , descripcion=\"".$descripcion."\" where id=\"".$id."\";";
+    $res=query($consulta);
+    if($res==="algo salio mal"){
+      return false;
+    }
+    return true;
+  }
 }
 ?>
 

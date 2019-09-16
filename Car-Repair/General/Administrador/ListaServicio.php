@@ -36,33 +36,42 @@ include "../BaseDatos/Consultas.php";
                   <p class="card-text"><?php echo $cl[2]; ?></p>
                   <a href="./RegistrarServicio.php?id=<?php echo($cl[0]); ?>" class="btn btn-primary">Registrar</a>
                   <div class="btn-group">
-                    <button type="button" class="btn btn-default">
-                      <span class="glyphicon glyphicon-align-left"></span>
-                    </button>
-                  </div>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-default">
-                      <span class="glyphicon glyphicon-align-left"></span>
-                    </button>
-                  </div>
-                </td>
-                <?php
-                if($contador==2){
-                  ?>
-                </div>
-              </tr>
-              <?php
-              $contador=0;
-              continue;
-            }
-            $contador++;
-          }
-          ?>
-        </table>
-      </div>
-    </div>
 
-  </div>
-  <?php
-  include "Encabezado/abajo.php";
-  ?>
+                    <a href="CrearServicio.php?id=<?php echo ($cl[0]); ?>"></span>
+                      <button type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-pencil">
+                        </button>
+                      </a>
+
+
+                    </div>
+                    <div class="btn-group">
+
+                      <a href="#">
+                        <button type="button" class="btn btn-danger">
+                          <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                      </a>
+
+                    </div>
+                  </td>
+                  <?php
+                  if($contador==2){
+                    ?>
+                  </div>
+                </tr>
+                <?php
+                $contador=0;
+                continue;
+              }
+              $contador++;
+            }
+            ?>
+          </table>
+        </div>
+      </div>
+
+    </div>
+    <?php
+    include "Encabezado/abajo.php";
+    ?>
