@@ -45,7 +45,7 @@
  	}
 ?>
 
-<p style="text-align: center; font-size: 50px;"><span style="color: #ffffff;"><strong>Agregar nuevo mec&aacute;nico</strong></span></p>
+<p style="text-align: center; font-size: 50px;"><span style="color: #ffffff;"><strong>Actualizar datos <?php echo "del mecanico xd" ?></strong></span></p>
 <!-- Inicio -->
 <div id="page-wrapper" >
             <div id="page-inner">
@@ -54,17 +54,14 @@
                <div class="row" style="float: center;">
                     <!-- Form Elements -->
                     <form role="form" method="post"> 
-                    <div class= <?php echo $alerta_tipo; ?> >
-                    	<?php echo $alerta; ?>
-                    </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Nuevo Mecánico
+                            <?php echo "del mecanico xd" ?>
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-12 col-sm-4">
-                                    <h3>Datos Personales del nuevo Mecánico</h3>
+                                    <h3>Datos personales del mecanico</h3>
                                     <!-- <form role="form"> -->
                                         <div class="form-group">
                                             <label>CUI</label>

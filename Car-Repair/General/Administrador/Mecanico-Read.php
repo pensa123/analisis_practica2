@@ -23,6 +23,8 @@
                                             <th>Estado</th>
                                             <th>Correo</th>
                                             <th>Teléfono</th>
+                                            <th>Nit</th>
+                                            <th>Dirección</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -39,8 +41,9 @@
                                             <td><?php echo $estado ?></td>
                                             <td><?php echo $mecanicos["correo"] ?></td>
                                             <td><?php echo $mecanicos["telefono"] ?></td>
-                                            <td><a class="btn btn-success">Editar</a></td>
-                                            <td><a class="btn btn-danger">Eliminar</a></td>
+                                            <td><?php echo $mecanicos["nit"] ?></td>
+                                            <td><?php echo $mecanicos["direccion"] ?></td>
+                                            <td><a class="btn btn-success" href="Mecanico-Update.php">Editar</a></td>
                                             </tr>
                                             <?php 
                                         }

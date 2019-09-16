@@ -1,5 +1,6 @@
 <?php
 include "Encabezado/arriba.php"
+session_start();
 ?>
 <div class="col-md-8 col-md-offset-2">
   <div class="panel panel-danger">
