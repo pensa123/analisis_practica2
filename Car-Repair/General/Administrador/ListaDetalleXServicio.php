@@ -44,7 +44,7 @@ if(isset($_GET["id"])){
             <?php
             $consulta="select vehiculo.placa,cliente.nombre,empleado.cui,empleado.nombre,servicio.nombre,detalleservicio.descripcion,detalleservicio.fecha,detalleServicio.id from vehiculo,empleado,cliente,detalleservicio ,servicio,entrada_vehiculo
             where entrada_vehiculo.id=detalleservicio.entrada_vehiculo and servicio.id=detalleservicio.servicio and detalleservicio.mecanico=empleado.cui
-            and entrada_vehiculo.cliente=cliente.cui and servicio.id=".$id." and detalleservicio.servicio=servicio.id and vehiculo.placa=entrada_vehiculo.vehiculo;";
+            and entrada_vehiculo.cliente=cliente.cui and servicio.id=".$id." and detalleservicio.servicio=servicio.id;";
             $resul=query($consulta);
             while ($cl = mysqli_fetch_array( $resul )){
               printf("<tr>");
