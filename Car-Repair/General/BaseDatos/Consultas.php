@@ -72,6 +72,17 @@ class Servicio{
     $res=query($consulta);
     return true;
   }
+  public function CrearDetalleServicio($id,$placa,$empleado,$cliente,$descripcion,$fecha){
+    $consulta1="select id from entrada_vehiculo where vehiculo=\"".$placa."\" and empleadoEncargado=\"".$empleado."\" and cliente=\"".$cliente."\" and estado<>3 ;";
+    $identrada=UElemento($consulta1);
+    $consulta="insert into detalleservicio (entrada_vehiculo,mecanico,servicio,descripcion,fecha) values(".$identrada.",".$empleado.",".$id.",\"".$descripcion."\",'".$fecha."');";
+    $res=query($consulta);
+
+    if($res==="algo salio mal"){
+      return false;
+    }
+    return true;
+  }
 }
 ?>
 
