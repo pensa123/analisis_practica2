@@ -43,7 +43,7 @@
                                             <td><?php echo $mecanicos["telefono"] ?></td>
                                             <td><?php echo $mecanicos["nit"] ?></td>
                                             <td><?php echo $mecanicos["direccion"] ?></td>
-                                            <td><a class="btn btn-success" href="Mecanico-Update.php">Editar</a></td>
+                                            <td><a class="btn btn-success" href="Mecanico-Update.php?cui_mecanico=<?php echo $mecanicos["cui"] ?>">Editar</a></td>
                                             </tr>
                                             <?php 
                                         }
