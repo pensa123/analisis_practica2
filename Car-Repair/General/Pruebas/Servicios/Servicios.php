@@ -7,6 +7,7 @@ class PruebaServicios extends PHPUnit_Framework_TestCase
     $this->testActualizarServicio();
     $this->testEliminarServicio();
     $this->testRegistrarServicio();
+    $this->testEliminarDetalleServicio();
   }
   public function testCrearServicio(){
     //Crear servicio
@@ -38,6 +39,13 @@ class PruebaServicios extends PHPUnit_Framework_TestCase
     include_once (__DIR__."\..\..\BaseDatos\Consultas.php");
     $serv=new Servicio;
     $this->assertEquals(true,$serv->CrearDetalleServicio("1","538FWX","2991120550101","2991120550101","Esta es una prueba de un servicio","2019-01-10"));
+  }
+  public function testEliminarDetalleServicio(){
+    include_once (__DIR__."\..\..\BaseDatos\Consultas.php");
+    $serv=new Servicio;
+    $consulta="select id from detalleServicio order by id desc limit 1;";
+    $id=UElemento($consulta);
+    $this->assertEquals(true,$serv->EliminarDetalleServicio($id));
   }
 }
 ?>

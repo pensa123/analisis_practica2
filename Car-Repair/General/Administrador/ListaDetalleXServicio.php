@@ -41,10 +41,6 @@ if(isset($_GET["id"])){
             </tr>
           </thead>
           <tbody>
-
-
-
-
             <?php
             $consulta="select vehiculo.placa,cliente.nombre,empleado.cui,empleado.nombre,servicio.nombre,detalleservicio.descripcion,detalleservicio.fecha,detalleServicio.id from vehiculo,empleado,cliente,detalleservicio ,servicio,entrada_vehiculo
             where entrada_vehiculo.id=detalleservicio.entrada_vehiculo and servicio.id=detalleservicio.servicio and detalleservicio.mecanico=empleado.cui
