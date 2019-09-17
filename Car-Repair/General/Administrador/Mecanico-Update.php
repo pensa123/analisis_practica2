@@ -3,46 +3,17 @@
   include "../BaseDatos/Consultas.php";
   $alerta_tipo = "\"hidden\"";
   $alerta = "";
-?>
-
-<?php
-	if(isset($_POST["accept"])){
-		mensaje();
-	}
-	function mensaje(){
-		if(!agregar()){
-			$GLOBALS['alerta_tipo'] = "\"alert alert-danger\"";
-			return false;
-		}
-		return true;
-	}
-	function agregar(){
-		$cui = $_POST["cui"];
-		$nombre = $_POST["nombre"];
-		$correo = $_POST["correo"];
-		$nit = $_POST["nit"];
-		$direccion = $_POST["direccion"];
-		$telefono = $_POST["telefono"];
-		$nickname = $_POST["nickname"];
-		$pass = $_POST["pass"];
-		$res = agregar_mecanico($cui,$nombre,$correo,$nit,$direccion,$telefono,$nickname,$pass);
-		if($res == "incompleto"){
-			$GLOBALS['alerta'] = "Error al agregar al mecánico. Los campos 'CUI' y 'Nickname' son obligatorios.";
-			return false;
-		} else if($res == "error"){
-			$GLOBALS['alerta'] = "Error al agregar al mecánico. Por favor verifique los datos.";
-			return false;
-		}
-		$GLOBALS['alerta_tipo'] = "\"hidden\"";
-		$GLOBALS['alerta'] = "";
-		return true;
-	}
- 	function agregar_mecanico($cui,$nombre,$correo,$nit,$direccion,$telefono,$nickname,$pass){
- 		if($cui==null || $nickname==null){
- 			return "incompleto";
- 		}
- 		return insertar("insert into empleado values('".$cui."','".$nombre."', '".$nickname."', '".$pass."', '".$correo."', '".$direccion."', '".$telefono."','".$nit."','".date("Y/m/d")."',1,1);");
- 	}
+  if(isset($_POST["accept"])){
+        $cui = $_POST["cui"];
+        $nombre = $_POST["nombre"];
+        $correo = $_POST["correo"];
+        $nit = $_POST["nit"];
+        $direccion = $_POST["direccion"];
+        $telefono = $_POST["telefono"];
+        $nickname = $_POST["nickname"];
+        $pass = $_POST["pass"];
+        create_mecanico($cui,$nombre,$correo,$nit,$direccion,$telefono,$nickname,$pass);
+  }
 ?>
 
 <p style="text-align: center; font-size: 50px;"><span style="color: #ffffff;"><strong>Actualizar datos <?php echo "del mecanico xd" ?></strong></span></p>
