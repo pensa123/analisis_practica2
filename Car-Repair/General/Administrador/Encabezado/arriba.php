@@ -38,10 +38,11 @@
           <ul class="menu">
             <li><a class="active" href="index.php">Home</a></li>
             <li><a href="Mecanico-Read.php">Mecánicos</a></li>
-            <li><a href="">Maintenance </a></li>
+            <li><a href="./ListaServicio.php">Maintenance </a></li>
             <li><a href="">Repair</a></li>
             <li><a href="">Price List</a></li>
             <li><a href="">Locations</a></li>
+            <li><a href="../index.php">Logout</a></li>
           </ul>
         </nav>
       </div>
