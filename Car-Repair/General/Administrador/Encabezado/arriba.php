@@ -31,17 +31,18 @@
         <div class="wrapper">
           <h1><a href="index.php">Car Repair</a></h1>
           <div class="fright">
-            <div class="indent"> <span class="address">Administrador</span> <span class="phone">Nombre del admin</span> </div>
+            <div class="indent"> <span class="address">Administrador</span> <span class="phone"><?php session_start();echo $_SESSION['USER']; ?></span> </div>
           </div>
         </div>
         <nav>
           <ul class="menu">
             <li><a class="active" href="index.php">Home</a></li>
             <li><a href="Mecanico-Read.php">Mecánicos</a></li>
-            <li><a href="">Maintenance </a></li>
+            <li><a href="./ListaServicio.php">Maintenance </a></li>
             <li><a href="">Repair</a></li>
             <li><a href="">Price List</a></li>
             <li><a href="">Locations</a></li>
+            <li><a href="../index.php">Logout</a></li>
           </ul>
         </nav>
       </div>

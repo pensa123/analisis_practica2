@@ -29,7 +29,7 @@
     <header>
       <div class="main">
         <div class="wrapper">
-          <h1><a href="index.html">Car Repair</a></h1>
+          <h1><a href="./index.php">Car Repair</a></h1>
         </div>
       </div>
     </header>

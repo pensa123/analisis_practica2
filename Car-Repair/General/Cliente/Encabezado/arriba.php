@@ -31,7 +31,8 @@
         <div class="wrapper">
           <h1><a href="index.html">Car Repair</a></h1>
           <div class="fright">
-            <div class="indent"> <span class="address">Cliente</span> <span class="phone">Nombre del cliente</span> </div>
+
+            <div class="indent"> <span class="address">Cliente</span> <span class="phone"><?php session_start();echo $_SESSION['USER']; ?></span> </div>
           </div>
         </div>
         <nav>
