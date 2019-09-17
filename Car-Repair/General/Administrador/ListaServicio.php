@@ -47,6 +47,15 @@ include "../BaseDatos/Consultas.php";
                     </div>
                     <div class="btn-group">
 
+                      <a href="ListaDetalleXServicio.php?id=<?php echo ($cl[0]); ?>&name=<?php echo $cl[1]; ?>">
+                        <button type="button" class="btn btn-info">
+                          <span class="glyphicon glyphicon-wrench"></span>
+                        </button>
+                      </a>
+
+                    </div>
+                    <div class="btn-group">
+
                       <a href="EliminarServicio.php?id=<?php echo ($cl[0]); ?>">
                         <button type="button" class="btn btn-danger">
                           <span class="glyphicon glyphicon-trash"></span>
@@ -54,6 +63,7 @@ include "../BaseDatos/Consultas.php";
                       </a>
 
                     </div>
+
                   </td>
                   <?php
                   if($contador==2){
