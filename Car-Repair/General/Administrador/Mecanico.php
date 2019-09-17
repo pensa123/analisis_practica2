@@ -47,4 +47,11 @@
  		insertar("delete from empleado where cui = ".$cui_anterior.";");
  		return insertar("insert into empleado values('".$cui."','".$nombre."', '".$nickname."', '".$pass."', '".$correo."', '".$direccion."', '".$telefono."','".$nit."','".$fechaContratacion."',1,'".$estado."');");
  	}
+
+ 	function eliminar_mecanico($cui){
+ 		if(insertar("delete from empleado where cui = ".$cui.";")){
+ 			return true;
+ 		}
+ 		return false;
+ 	}
 ?>

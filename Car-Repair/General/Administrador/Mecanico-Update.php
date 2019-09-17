@@ -16,6 +16,14 @@
   $pass = "";
   $cui_anterior = "";
   if(isset($_GET["cui_mecanico"])){
+    if(isset($_POST["eliminar"])){
+        eliminar_mecanico($_GET["cui_mecanico"]);
+        ?>
+        <script type="text/javascript">
+        location.href="Mecanico-Read.php";
+        </script>
+        <?php
+    }
     $usuario = query("Select * from empleado where cui = ".$_GET["cui_mecanico"].";");
     while ($datos = mysqli_fetch_array( $usuario )){
         $cui_anterior = $datos["cui"];
@@ -54,7 +62,7 @@
             ?>
             <script type="text/javascript">
             var cui = <?php echo $cui ?>;
-            location.href="Mecanico-Read.php?cui_mecanico=" + cui;
+            location.href="Mecanico-Read.php";
             </script>
             <?php
         }
@@ -126,7 +134,12 @@
                                             <input class="form-control" name = "pass" value=<?php echo "\"".$pass."\"";?>/>
                                         </div>
                                         <button type="reset" name="cancel" class="btn btn-default">Cancelar</button>
-                                        <button type="submit" name="accept" class="btn btn-danger">Agregar Mecánico</button>
+                                        <button type="submit" name="accept" class="btn btn-success">Actualizar Mecánico</button>
+                                        <br/>
+                                        <hr/>
+                                        <br/>
+
+                                        <button type="submit" name="eliminar" class="btn btn-danger">Eliminar Mecánico</button>
                                     <!-- </form> -->
 
                                 </div>
