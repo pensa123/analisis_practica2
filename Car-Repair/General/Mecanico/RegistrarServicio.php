@@ -26,17 +26,17 @@ if(isset($_GET["id"])){
         <div class="input-group mb-3">
 
           <h3>Placa</h3>
-          <input type="text" value="<?php if(isset($_GET["PLACA"]))echo $_GET["PLACA"]; ?>"size="15" class="form-control" name="PLACA" placeholder="Placa del vehiculo" aria-label="Recipient's username" aria-describedby="basic-addon2">
+          <input type="text" value=""size="15" class="form-control" name="PLACA" placeholder="Placa del vehiculo" aria-label="Recipient's username" aria-describedby="basic-addon2">
           <br>
           <h3>Cliente</h3>
-          <input type="text" value="<?php if(isset($_GET["CLIENTE"]))echo $_GET["CLIENTE"]; ?>" size="30" class="form-control" name="CLIENTE" placeholder="DPI" aria-label="Recipient's username" aria-describedby="basic-addon2">
+          <input type="text" value="" size="30" class="form-control" name="CLIENTE" placeholder="DPI" aria-label="Recipient's username" aria-describedby="basic-addon2">
           <br>
           <h3>Fecha</h3>
           <br>
           <input class="form-control" size="10" type="date" name="FECHA" value="">
           <br>
           <h3>Descripcion</h3>
-          <textarea class="form-control" rows="10" id="y" cols="100" name="DESCRIPCION" aria-label="With textarea"><?php if(isset($_GET["DESCRIPCION"]))echo $_GET["DESCRIPCION"]; ?></textarea>
+          <textarea class="form-control" rows="10" id="y" cols="100" name="DESCRIPCION" aria-label="With textarea"></textarea>
           <br>
           <br></br>
           <input type="submit" name="submit" value="Registrar Trabajo" class="btn btn-info">
