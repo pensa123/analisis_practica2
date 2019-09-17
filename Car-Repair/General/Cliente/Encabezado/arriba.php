@@ -43,6 +43,7 @@
             <li><a href="">Repair</a></li>
             <li><a href="">Price List</a></li>
             <li><a href="">Locations</a></li>
+            <li><a href="../index.php">Login</a></li>
           </ul>
         </nav>
       </div>
