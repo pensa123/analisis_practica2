@@ -22,7 +22,7 @@ class PruebaMecanicos extends PHPUnit_Framework_TestCase
     $this->assertSame(false,crear_mecanico(null,"Treinta","tt","1234","dire","56565","ttnick","1234"));
     $this->assertSame(false,crear_mecanico("hola","Treinta","tt","1234","dire","56565","ttnick","1234"));
     $this->assertSame(false,actualizar_mecanico(30,null,"cero","cero","0","cero","00","2019-02-01",1,"cero","1234"));
-    //$this->assertSame(false,actualizar_mecanico(30,"null","cero","cero","0","cero","00","2019-02-01",1,"cero","1234"));
+    $this->assertSame(true,actualizar_mecanico(30,"null","cero","cero","0","cero","00","2019-02-01",1,"cero","1234"));
 
   }
 }
