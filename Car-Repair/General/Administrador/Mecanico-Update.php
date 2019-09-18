@@ -57,12 +57,18 @@
             $estado = -1;
         $nickname = $_POST["nickname"];
         $pass = $_POST["pass"];
-        update_mecanico($cui_anterior,$cui,$nombre,$correo,$nit,$direccion,$telefono,$fechaContratacion,$estado,$nickname,$pass);
+        $retorno = update_mecanico($cui_anterior,$cui,$nombre,$correo,$nit,$direccion,$telefono,$fechaContratacion,$estado,$nickname,$pass);
+        if($retorno!=""){
+            $alerta = $retorno;
+            $alerta_tipo = "\"alert alert-danger\"";
+        }  else {
+            $alerta_tipo = "\"hidden\"";
+            $alerta = "";
+        }
         if($cui != $cui_anterior)
         {
             ?>
             <script type="text/javascript">
-            var cui = <?php echo $cui ?>;
             location.href="Mecanico-Read.php";
             </script>
             <?php
@@ -79,6 +85,9 @@
                <div class="row" style="float: center;">
                     <!-- Form Elements -->
                     <form role="form" method="post"> 
+                    <div class= <?php echo $alerta_tipo; ?> >
+                       <?php echo $alerta; ?>
+                    </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <?php echo $nombre ?>

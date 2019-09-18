@@ -13,7 +13,17 @@
 		$telefono = $_POST["telefono"];
 		$nickname = $_POST["nickname"];
 		$pass = $_POST["pass"];
-		create_mecanico($cui,$nombre,$correo,$nit,$direccion,$telefono,$nickname,$pass);
+		$retorno = create_mecanico($cui,$nombre,$correo,$nit,$direccion,$telefono,$nickname,$pass);
+        if($retorno!=""){
+            $alerta = $retorno;
+            $alerta_tipo = "\"alert alert-danger\"";
+        } else {
+            ?>
+            <script type="text/javascript">
+            location.href="Mecanico-Read.php";
+            </script>
+            <?php
+        }
   }
 ?>
 

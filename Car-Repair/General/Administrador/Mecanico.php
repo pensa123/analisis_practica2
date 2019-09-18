@@ -13,10 +13,9 @@
 		}
 		else if($res == "incompleto"){
 			return "Error al agregar al mecánico. Los campos 'CUI' y 'Nickname' son obligatorios.";
-		} else if($res == "error"){
+		} else {
 			return "Error al agregar al mecánico. Por favor verifique los datos.";
 		}
-		return "";
 	}
  	function agregar_mecanico($cui,$nombre,$correo,$nit,$direccion,$telefono,$nickname,$pass){
  		if($cui==null || $nickname==null){
@@ -39,17 +38,15 @@
 			return "";
 		} else if($res == "incompleto"){
 			return "Error al agregar al mecánico. Los campos 'CUI' y 'Nickname' son obligatorios.";
-		} else if($res == "error"){
+		} else {
 			return "Error al agregar al mecánico. Por favor verifique los datos.";
 		}
-		return "";
 	}
  	function editar_mecanico($cui_anterior,$cui,$nombre,$correo,$nit,$direccion,$telefono,$fechaContratacion,$estado,$nickname,$pass){
  		if($cui==null || $nickname==null){
  			return "incompleto";
  		}
- 		insertar("delete from empleado where cui = ".$cui_anterior.";");
- 		$consulta =  "insert into empleado values('".$cui."','".$nombre."', '".$nickname."', '".$pass."', '".$correo."', '".$direccion."', '".$telefono."','".$nit."','".$fechaContratacion."',1,'".$estado."');";
+ 		$consulta =  "update empleado set cui = ".$cui.", nombre ='".$nombre."', nickname='".$nickname."', pass='".$pass."', correo='".$correo."', direccion='".$direccion."', telefono='".$telefono."',nit='".$nit."',fechaContratacion='".$fechaContratacion."',tipo=1,estado='".$estado."' where cui = ".$cui_anterior.";";
  		return insertar($consulta);
  	}
 
