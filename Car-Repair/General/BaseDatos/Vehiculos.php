@@ -22,3 +22,13 @@ function crearVehiculo($placa, $marca, $modelo , $aniofab){
     }
 
 }
+
+function editVehiculo($placa, $marca, $modelo , $aniofab){
+    try{
+        $var = sprintf("UPDATE VEHICULO SET marca = '%s' , modelo = '%s' , anio_fabricacion = %d where placa = '%s';",   
+        $marca , $modelo , $aniofab, $placa); 
+        query($var);
+        return true; 
+    }catch(Exception $e){}
+
+}

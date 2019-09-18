@@ -10,17 +10,25 @@ class PruebaVehiculo extends TestCase
     
     public function CorrerTodo()
     { 
-        $this->testElimVehiculo();
         $this->testCrearVehiculo();
+        $this->testEditVehiculo();
+        $this->testElimVehiculo();
     }
 
-    public function testElimVehiculo(){
-
-        $this->assertNotEmpty(eliminarVehiculo(('p055chk')));
-    }
 
     public function testCrearVehiculo()
     {
-        $this->assertNotEmpty(crearVehiculo("p055chk", "kia" , "pop" , 1999) );
+        $this->assertNotEmpty(crearVehiculo("prueba", "kia" , "pop" , 1999) );
+    }
+    
+    public function testEditVehiculo()
+    {
+        $this->assertNotEmpty(editVehiculo("prueba", "honda" , "civic" , 1999) );
+    }
+
+    
+    public function testElimVehiculo(){
+        
+        $this->assertNotEmpty(eliminarVehiculo(('prueba')));
     }
 }
