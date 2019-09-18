@@ -8,6 +8,7 @@ class PruebaMecanicos extends TestCase
     $this->testMecanicos();
   }
   public function testMecanicos(){
+<<<<<<< HEAD
     //prueba crear mecánico
     echo "\nEliminar si existe";
     $this->assertSame(true, eliminar_mecanico(2658762580403));
@@ -25,6 +26,10 @@ class PruebaMecanicos extends TestCase
     echo "\nActualizar";
     $this->assertSame(false,actualizar_mecanico(30,null,"cero","cero","0","cero","00","2019-02-01",1,"cero","1234"));
     //prueba eliminar mecánico
+=======
+    //prueba crear mecanico
+    $this->assertEquals("\"alert alert-danger\"", create_mecanico('3016252620302','Mecanico prueba','mecanico_prueba@correo.com','12653265','Direccion de prueba','77659563','mec_prue','1234'));
+>>>>>>> f3.0-201602420
   }
 }
 
