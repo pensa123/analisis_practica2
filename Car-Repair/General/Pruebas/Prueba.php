@@ -11,6 +11,8 @@ class Prueba extends PHPUnit_Framework_TestCase
     //servicios
     $serv=new PruebaServicios;
     $serv->CorrerTodo();
+    $mecanicos=new PruebaMecanicos();
+    $mecanicos->iniciarPrueabas();
   }
 }
 ?>
