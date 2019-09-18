@@ -17,6 +17,7 @@
   $cui_anterior = "";
   if(isset($_GET["cui_mecanico"])){
     if(isset($_POST["eliminar"])){
+        echo "se va a eliminar";
         eliminar_mecanico($_GET["cui_mecanico"]);
         ?>
         <script type="text/javascript">
