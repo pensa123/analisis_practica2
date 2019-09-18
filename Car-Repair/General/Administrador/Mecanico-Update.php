@@ -1,6 +1,5 @@
 <?php
   include "Encabezado/arriba.php";
-  include "../BaseDatos/Consultas.php";
   include "Mecanico.php";
   $alerta_tipo = "\"hidden\"";
   $alerta = "";
