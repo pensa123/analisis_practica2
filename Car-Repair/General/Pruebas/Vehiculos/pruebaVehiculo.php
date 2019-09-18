@@ -13,6 +13,7 @@ class PruebaVehiculo extends TestCase
         $this->testCrearVehiculo();
         $this->testEditVehiculo();
         $this->testElimVehiculo();
+        $this->testObtenerVehiculos();
     }
 
 
@@ -30,5 +31,9 @@ class PruebaVehiculo extends TestCase
     public function testElimVehiculo(){
         
         $this->assertNotEmpty(eliminarVehiculo(('prueba')));
+    }
+
+    public function testObtenerVehiculos(){
+        $this->assertNotEmpty(obtenerVehiculo());
     }
 }

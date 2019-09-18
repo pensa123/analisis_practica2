@@ -17,11 +17,18 @@ function crearVehiculo($placa, $marca, $modelo , $aniofab){
         $var = sprintf("INSERT INTO vehiculo values('%s' , '%s', '%s' , %d);", $placa , $marca , $modelo , $aniofab); 
         query($var);
         return true; 
-    }catch(Exception $e){
-
-    }
+    }catch(Exception $e){}
 
 }
+
+
+function obtenerVehiculo($where = "1 = 1"){
+
+    $var = sprintf("select * from vehiculo where %s; " , $where); 
+    return query($var);
+}
+
+
 
 function editVehiculo($placa, $marca, $modelo , $aniofab){
     try{
