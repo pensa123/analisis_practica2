@@ -10,7 +10,9 @@ class PruebaVehiculo extends TestCase
     
     public function CorrerTodo()
     { 
-
+        $this->testaddVehiculoCola();
+        $this->testGetVehiculoscola();
+        $this->testQuitarDeLaCola();
     }
 
     public function testaddVehiculoCola(){
