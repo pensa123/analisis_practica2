@@ -1,9 +1,9 @@
 <?php
 include_once (__DIR__."\..\..\Administrador\Mecanico.php");
 include_once (__DIR__."\..\..\BaseDatos\Consultas.php");
-use PHPUnit\Framework\TestCase;
-class PruebaMecanicos extends TestCase
-//class PruebaMecanicos extends PHPUnit_Framework_TestCase
+//use PHPUnit\Framework\TestCase;
+//class PruebaMecanicos extends TestCase
+class PruebaMecanicos extends PHPUnit_Framework_TestCase
 {
   public function iniciarPrueabas(){
     $this->testMecanicos();
