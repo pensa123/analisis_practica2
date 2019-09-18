@@ -1,4 +1,6 @@
 <?php
+	
+	include_once (__DIR__."\..\BaseDatos\Consultas.php");
 	function crear_mecanico($cui,$nombre,$correo,$nit,$direccion,$telefono,$nickname,$pass){
 		$c = create_mecanico($cui,$nombre,$correo,$nit,$direccion,$telefono,$nickname,$pass); 
 		if($c == ""){
