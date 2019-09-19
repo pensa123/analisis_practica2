@@ -12,28 +12,10 @@ class PruebaVehiculo extends TestCase
     public function CorrerTodo()
     {
         $this->testquitarLista();
-        $this->testestadoVehiculo();
-        $this->testmostrarAvances();
-        $this->testIngresarAReparacion();
-    }
-
-    public function testIngresarAReparacion()
-    {
-        $this->assertNotEmpty(ingresaReparacion("222"));
-    }
-
-    public function testestadoVehiculo()
-    {
-        $this->assertNotEmpty(estadoVehiculo("222"));
-    }
-
-    public function testmostrarAvances()
-    {
-        $this->assertNotEmpty(mostrarAvances());
     }
 
     public function testquitarLista()
     {
-        $this->assertNotEmpty(quitarLista("222"));
+        $this->assertNotEmpty(quitarLista("1"));
     }
 }
