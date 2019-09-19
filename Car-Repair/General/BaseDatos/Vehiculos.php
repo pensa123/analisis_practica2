@@ -5,7 +5,6 @@ include_once("Consultas.php");
 function eliminarVehiculo($placa){
     try{
         $var = sprintf("DELETE from vehiculo where placa = '%s'; " , $placa);
-        echo $var;
         query($var);
         return true; 
     }catch(Exception $e){}
@@ -24,8 +23,10 @@ function crearVehiculo($placa, $marca, $modelo , $aniofab){
 
 function obtenerVehiculo($where = "1 = 1"){
 
+    try{
     $var = sprintf("select * from vehiculo where %s; " , $where); 
     return query($var);
+    }catch(Exception $e){}
 }
 
 
