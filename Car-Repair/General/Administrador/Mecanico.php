@@ -1,57 +1,62 @@
 <?php
+	
+	include_once (__DIR__."\..\BaseDatos\Consultas.php");
+	function crear_mecanico($cui,$nombre,$correo,$nit,$direccion,$telefono,$nickname,$pass){
+		$c = create_mecanico($cui,$nombre,$correo,$nit,$direccion,$telefono,$nickname,$pass); 
+		if($c == ""){
+			return true;
+		}
+		return false;
+	}
 	function create_mecanico($cui,$nombre,$correo,$nit,$direccion,$telefono,$nickname,$pass){
-		return mensaje($cui,$nombre,$correo,$nit,$direccion,$telefono,$nickname,$pass);
-	}
-	function mensaje($cui,$nombre,$correo,$nit,$direccion,$telefono,$nickname,$pass){
-		if(!agregar($cui,$nombre,$correo,$nit,$direccion,$telefono,$nickname,$pass)){
-			return "\"alert alert-danger\"";
-		}
-		return "";
-	}
-	function agregar($cui,$nombre,$correo,$nit,$direccion,$telefono,$nickname,$pass){
 		$res = agregar_mecanico($cui,$nombre,$correo,$nit,$direccion,$telefono,$nickname,$pass);
-		if($res == "incompleto"){
-			$GLOBALS['alerta'] = "Error al agregar al mecánico. Los campos 'CUI' y 'Nickname' son obligatorios.";
-			return false;
-		} else if($res == "error"){
-			$GLOBALS['alerta'] = "Error al agregar al mecánico. Por favor verifique los datos.";
-			return false;
+		if($res == 1){
+			return "";
 		}
-		$GLOBALS['alerta_tipo'] = "\"hidden\"";
-		$GLOBALS['alerta'] = "";
-		return true;
+		else if($res == "incompleto"){
+			return "Error al agregar al mecánico. Los campos 'CUI' y 'Nickname' son obligatorios.";
+		} else {
+			return "Error al agregar al mecánico. Por favor verifique los datos.";
+		}
 	}
  	function agregar_mecanico($cui,$nombre,$correo,$nit,$direccion,$telefono,$nickname,$pass){
  		if($cui==null || $nickname==null){
  			return "incompleto";
  		}
- 		return insertar("insert into empleado values('".$cui."','".$nombre."', '".$nickname."', '".$pass."', '".$correo."', '".$direccion."', '".$telefono."','".$nit."','".date("Y/m/d")."',1,1);");
+ 		$consulta = "insert into empleado values('".$cui."','".$nombre."', '".$nickname."', '".$pass."', '".$correo."', '".$direccion."', '".$telefono."','".$nit."','".date("Y/m/d")."',1,1);";
+ 		return insertar($consulta);
  	}
 
- 	function update_mecanico($cui_anterior,$cui,$nombre,$correo,$nit,$direccion,$telefono,$fechaContratacion,$estado,$nickname,$pass){
-		return actualizar($cui_anterior,$cui,$nombre,$correo,$nit,$direccion,$telefono,$fechaContratacion,$estado,$nickname,$pass);
-	}
-	function actualizar($cui_anterior,$cui,$nombre,$correo,$nit,$direccion,$telefono,$fechaContratacion,$estado,$nickname,$pass){
-		$res = actualizar_mecanico($cui_anterior,$cui,$nombre,$correo,$nit,$direccion,$telefono,$fechaContratacion,$estado,$nickname,$pass);
-		if($res == "incompleto"){
-			return "Error al agregar al mecánico. Los campos 'CUI' y 'Nickname' son obligatorios.";
-		} else if($res == "error"){
-			return "Error al agregar al mecánico. Por favor verifique los datos.";
-		}
-		return "";
-	}
+
  	function actualizar_mecanico($cui_anterior,$cui,$nombre,$correo,$nit,$direccion,$telefono,$fechaContratacion,$estado,$nickname,$pass){
- 		if($cui==null || $nickname==null){
- 			return "incompleto";
- 		}
- 		insertar("delete from empleado where cui = ".$cui_anterior.";");
- 		return insertar("insert into empleado values('".$cui."','".$nombre."', '".$nickname."', '".$pass."', '".$correo."', '".$direccion."', '".$telefono."','".$nit."','".$fechaContratacion."',1,'".$estado."');");
- 	}
-
- 	function eliminar_mecanico($cui){
- 		if(insertar("delete from empleado where cui = ".$cui.";")){
+ 		if(update_mecanico($cui_anterior,$cui,$nombre,$correo,$nit,$direccion,$telefono,$fechaContratacion,$estado,$nickname,$pass) == ""){
  			return true;
  		}
  		return false;
+ 	}
+	function update_mecanico($cui_anterior,$cui,$nombre,$correo,$nit,$direccion,$telefono,$fechaContratacion,$estado,$nickname,$pass){
+		$res = editar_mecanico($cui_anterior,$cui,$nombre,$correo,$nit,$direccion,$telefono,$fechaContratacion,$estado,$nickname,$pass);
+		if($res == 1){
+			return "";
+		} else if($res == "incompleto"){
+			return "Error al agregar al mecánico. Los campos 'CUI' y 'Nickname' son obligatorios.";
+		} else {
+			return "Error al agregar al mecánico. Por favor verifique los datos.";
+		}
+	}
+ 	function editar_mecanico($cui_anterior,$cui,$nombre,$correo,$nit,$direccion,$telefono,$fechaContratacion,$estado,$nickname,$pass){
+ 		if($cui==null || $nickname==null){
+ 			return "incompleto";
+ 		}
+ 		$consulta =  "update empleado set cui = ".$cui.", nombre ='".$nombre."', nickname='".$nickname."', pass='".$pass."', correo='".$correo."', direccion='".$direccion."', telefono='".$telefono."',nit='".$nit."',fechaContratacion='".$fechaContratacion."',tipo=1,estado='".$estado."' where cui = ".$cui_anterior.";";
+ 		return insertar($consulta);
+ 	}
+
+ 	function eliminar_mecanico($cui){
+ 		if($cui ==null){
+ 			return false;
+ 		}
+ 		insertar("delete from empleado where cui = ".$cui.";");
+ 		return true;
  	}
 ?>

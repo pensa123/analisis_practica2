@@ -22,14 +22,11 @@ if(isset($_GET["id"])){
           </div>
           <?php
         }
-        ?>
+         ?>
         <div class="input-group mb-3">
 
           <h3>Placa</h3>
           <input type="text" value=""size="15" class="form-control" name="PLACA" placeholder="Placa del vehiculo" aria-label="Recipient's username" aria-describedby="basic-addon2">
-          <br>
-          <h3>Empleado encargado</h3>
-          <input type="text" value="" size="30" class="form-control" name="EMPLEADO" placeholder="DPI" aria-label="Recipient's username" aria-describedby="basic-addon2">
           <br>
           <h3>Cliente</h3>
           <input type="text" value="" size="30" class="form-control" name="CLIENTE" placeholder="DPI" aria-label="Recipient's username" aria-describedby="basic-addon2">
@@ -51,51 +48,52 @@ if(isset($_GET["id"])){
 <?php
 if(isset($_POST["submit"])){
   $placa=$_POST["PLACA"];
-  $empleado=$_POST["EMPLEADO"];
+  $empleado=$_SESSION["CUI"];
   $cliente=$_POST["CLIENTE"];
   $descripcion=$_POST["DESCRIPCION"];
   $fecha=$_POST["FECHA"];
   if(!Existe("select * from vehiculo where placa=\"".$placa."\";")){
     ?>
     <script type="text/javascript">
-    location.href="./RegistrarServicio.php?id=<?php echo $id; ?>&msg=Error no existe esa placa&PLACA=<?php echo $placa; ?>&EMPLEADO=<?php echo $empleado; ?>&CLIENTE=<?php echo $cliente; ?>&DESCRIPCION=<?php echo $descripcion; ?>";
+      location.href="./RegistrarServicio.php?id=<?php echo $id; ?>&msg=Error no existe esa placa&PLACA=<?php echo $placa; ?>&EMPLEADO=<?php echo $empleado; ?>&CLIENTE=<?php echo $cliente; ?>&DESCRIPCION=<?php echo $descripcion; ?>";
     </script>
     <?php
   }
-  if(!Existe("select * from empleado where cui=\"".$empleado."\"")){
+  else if(!Existe("select * from empleado where cui=\"".$empleado."\"")){
     ?>
     <script type="text/javascript">
-    location.href="./RegistrarServicio.php?id=<?php echo $id; ?>&msg=Error no existe ese empleado &PLACA=<?php echo $placa; ?>&EMPLEADO=<?php echo $empleado; ?>&CLIENTE=<?php echo $cliente; ?>&DESCRIPCION=<?php echo $descripcion; ?>";
+      location.href="./RegistrarServicio.php?id=<?php echo $id; ?>&msg=Error no existe ese empleado &PLACA=<?php echo $placa; ?>&EMPLEADO=<?php echo $empleado; ?>&CLIENTE=<?php echo $cliente; ?>&DESCRIPCION=<?php echo $descripcion; ?>";
     </script>
     <?php
   }
- if(!Existe("select * from cliente where cui=\"".$cliente."\"")){
+  else if(!Existe("select * from cliente where cui=\"".$cliente."\"")){
     ?>
     <script type="text/javascript">
-    location.href="./RegistrarServicio.php?id=<?php echo $id; ?>&msg=Error no existe ese cliente &PLACA=<?php echo $placa; ?>&EMPLEADO=<?php echo $empleado; ?>&CLIENTE=<?php echo $cliente; ?>&DESCRIPCION=<?php echo $descripcion; ?>";
+      location.href="./RegistrarServicio.php?id=<?php echo $id; ?>&msg=Error no existe ese cliente &PLACA=<?php echo $placa; ?>&EMPLEADO=<?php echo $empleado; ?>&CLIENTE=<?php echo $cliente; ?>&DESCRIPCION=<?php echo $descripcion; ?>";
     </script>
     <?php
   }
   if(!Existe("select * from entrada_vehiculo where vehiculo=\"".$placa."\" and empleadoencargado=\"".$empleado."\" and estado<>3;")){
     ?>
     <script type="text/javascript">
-    location.href="./RegistrarServicio.php?id=<?php echo $id; ?>&msg=Ese carro no esta bajo el cuidado de ese mecanico &PLACA=<?php echo $placa; ?>&EMPLEADO=<?php echo $empleado; ?>&CLIENTE=<?php echo $cliente; ?>&DESCRIPCION=<?php echo $descripcion; ?>";
+    location.href="./RegistrarServicio.php?id=<?php echo $id; ?>&msg=Ese carro no esta bajo tu cuidado &PLACA=<?php echo $placa; ?>&EMPLEADO=<?php echo $empleado; ?>&CLIENTE=<?php echo $cliente; ?>&DESCRIPCION=<?php echo $descripcion; ?>";
     </script>
     <?php
-  }else{
+  }
+  else{
     //si cumple
-    $ser=new Servicio;
-    $ser->CrearDetalleServicio($id,$placa,$empleado,$cliente,$descripcion,$fecha);
-    ?>
-    <script type="text/javascript">
-    location.href="ListaServicio.php";
-    </script>
-    <?php
+      $ser=new Servicio;
+      $ser->CrearDetalleServicio($id,$placa,$empleado,$cliente,$descripcion,$fecha);
+      ?>
+      <script type="text/javascript">
+        location.href="ListaServicio.php";
+      </script>
+      <?php
   }
 
 
 }
-?>
+ ?>
 
 <?php
 include "Encabezado/abajo.php";

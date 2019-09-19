@@ -8,7 +8,7 @@ if(isset($_GET["id"])){
 
 <div class="panel panel-info" style="width: 110rem;">
   <div class="panel-heading">
-    <h2 class="panel-title">Listado de <?php echo $_GET["name"]; ?></h2>
+    <h2 class="panel-title">Listado de servicios a su nombre</h2>
   </div>
   <div class="panel-body" >
     <div class="panel panel-default">
@@ -20,12 +20,7 @@ if(isset($_GET["id"])){
               <td>
                 <h4>Placa</h4>
               </td>
-              <td>
-                <h4>Cliente</h4>
-              </td>
-              <td>
-                <h4>Empleado CUI</h4>
-              </td>
+
               <td>
                 <h4>Empleado</h4>
               </td>
@@ -42,9 +37,9 @@ if(isset($_GET["id"])){
           </thead>
           <tbody>
             <?php
-            $consulta="select vehiculo.placa,cliente.nombre,empleado.cui,empleado.nombre,servicio.nombre,detalleservicio.descripcion,detalleservicio.fecha,detalleServicio.id from vehiculo,empleado,cliente,detalleservicio ,servicio,entrada_vehiculo
+            $consulta="select vehiculo.placa,empleado.nombre,servicio.nombre,detalleservicio.descripcion,detalleservicio.fecha,detalleServicio.id from vehiculo,empleado,cliente,detalleservicio ,servicio,entrada_vehiculo
             where entrada_vehiculo.id=detalleservicio.entrada_vehiculo and servicio.id=detalleservicio.servicio and detalleservicio.mecanico=empleado.cui
-            and entrada_vehiculo.cliente=cliente.cui and servicio.id=".$id." and detalleservicio.servicio=servicio.id and vehiculo.placa=entrada_vehiculo.vehiculo;";
+            and entrada_vehiculo.cliente=cliente.cui and cliente.cui=".$_SESSION["CUI"]." and detalleservicio.servicio=servicio.id and vehiculo.placa=entrada_vehiculo.vehiculo;";
             $resul=query($consulta);
             while ($cl = mysqli_fetch_array( $resul )){
               printf("<tr>");
@@ -53,19 +48,9 @@ if(isset($_GET["id"])){
               printf("<td>%s</td>",$cl[2]);
               printf("<td>%s</td>",$cl[3]);
               printf("<td>%s</td>",$cl[4]);
-              printf("<td>%s</td>",$cl[5]);
-              printf("<td>%s</td>",$cl[6]);
-              printf("<td>");
-              $boton="<div class=\"btn-group\">
+              //printf("<td>%s</td>",$cl[5]);
+              //printf("<td>%s</td>",$cl[6]);
 
-                <a href=\"EliminarDetalleServicio.php?id=".$cl[7]."\">
-                  <button type=\"button\" class=\"btn btn-danger\">
-                    <span class=\"glyphicon glyphicon-trash\"></span>
-                  </button>
-                </a>
-              </div>";
-              printf($boton);
-              printf("</td>");
               printf("</tr>");
             }
 

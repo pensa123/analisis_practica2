@@ -1,14 +1,12 @@
 <?php
 include "Encabezado/arriba.php";
 include "../BaseDatos/Consultas.php";
-if(isset($_GET["id"])){
-  $id=$_GET["id"];
-}
+
 ?>
 
 <div class="panel panel-info" style="width: 110rem;">
   <div class="panel-heading">
-    <h2 class="panel-title">Listado de <?php echo $_GET["name"]; ?></h2>
+    <h2 class="panel-title">Listado de  Servicio del mecanico</h2>
   </div>
   <div class="panel-body" >
     <div class="panel panel-default">
@@ -42,9 +40,23 @@ if(isset($_GET["id"])){
           </thead>
           <tbody>
             <?php
+            $consulta1="select id,fecha from detalleservicio where mecanico=".$_SESSION["CUI"]." order by fecha desc;";
+            $resul1=query($consulta1);
+            $grabado="1";
+            $anterior="";
+            while($cl1=mysqli_fetch_array($resul1)){
+            $grabado=$cl1[1];
+            if($grabado===$anterior){
+              $anterior=$cl1[1];
+            }else{
+              printf("<tr><td colspan=\"8\"><h4>%s</h4></td></tr>",$cl1[1]);
+              $grabado=$cl1[1];
+              $anterior=$cl1[1];
+            }
+
             $consulta="select vehiculo.placa,cliente.nombre,empleado.cui,empleado.nombre,servicio.nombre,detalleservicio.descripcion,detalleservicio.fecha,detalleServicio.id from vehiculo,empleado,cliente,detalleservicio ,servicio,entrada_vehiculo
             where entrada_vehiculo.id=detalleservicio.entrada_vehiculo and servicio.id=detalleservicio.servicio and detalleservicio.mecanico=empleado.cui
-            and entrada_vehiculo.cliente=cliente.cui and servicio.id=".$id." and detalleservicio.servicio=servicio.id and vehiculo.placa=entrada_vehiculo.vehiculo;";
+            and entrada_vehiculo.cliente=cliente.cui and detalleServicio.id=".$cl1[0]." and detalleservicio.servicio=servicio.id and vehiculo.placa=entrada_vehiculo.vehiculo;";
             $resul=query($consulta);
             while ($cl = mysqli_fetch_array( $resul )){
               printf("<tr>");
@@ -63,12 +75,12 @@ if(isset($_GET["id"])){
                     <span class=\"glyphicon glyphicon-trash\"></span>
                   </button>
                 </a>
-              </div>";
-              printf($boton);
+                </div>";
+                printf($boton);
               printf("</td>");
               printf("</tr>");
             }
-
+          }
             ?>
           </tbody>
         </table>
