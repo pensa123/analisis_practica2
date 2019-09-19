@@ -34,6 +34,8 @@ include "../BaseDatos/Consultas.php";
                 <div class="card-body">
                   <h3 class="card-title"><?php echo $cl[1]; ?></h3>
                   <p class="card-text"><?php echo $cl[2]; ?></p>
+                  <h4>Precio</h4>
+                  <h class="card-text"><?php echo $cl[3]; ?></p>
                   <a href="./RegistrarServicio.php?id=<?php echo($cl[0]); ?>" class="btn btn-primary">Registrar</a>
                   <div class="btn-group">
 
