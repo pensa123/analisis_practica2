@@ -40,9 +40,11 @@
             <li><a class="active" href="index.html">Home</a></li>
             <li><a href="">About Us</a></li>
             <li><a href="./ListaDetalleXServicio.php">Maintenance </a></li>
-            <li><a href="">Repair</a></li>
-            <li><a href="">Price List</a></li>
-            <li><a href="">Locations</a></li>
+           
+            
+            <li><a href="vehiculos.php">Estado de vehiculos</a></li>
+      
+
             <li><a href="../index.php">Logout</a></li>
           </ul>
         </nav>
