@@ -1,6 +1,5 @@
 <?php
   include "Encabezado/arriba.php";
-  include "../BaseDatos/Consultas.php";
   include "Mecanico.php";
   $alerta_tipo = "\"hidden\"";
   $alerta = "";
@@ -17,6 +16,7 @@
   $cui_anterior = "";
   if(isset($_GET["cui_mecanico"])){
     if(isset($_POST["eliminar"])){
+        echo "se va a eliminar";
         eliminar_mecanico($_GET["cui_mecanico"]);
         ?>
         <script type="text/javascript">
@@ -56,12 +56,18 @@
             $estado = -1;
         $nickname = $_POST["nickname"];
         $pass = $_POST["pass"];
-        update_mecanico($cui_anterior,$cui,$nombre,$correo,$nit,$direccion,$telefono,$fechaContratacion,$estado,$nickname,$pass);
+        $retorno = update_mecanico($cui_anterior,$cui,$nombre,$correo,$nit,$direccion,$telefono,$fechaContratacion,$estado,$nickname,$pass);
+        if($retorno!=""){
+            $alerta = $retorno;
+            $alerta_tipo = "\"alert alert-danger\"";
+        }  else {
+            $alerta_tipo = "\"hidden\"";
+            $alerta = "";
+        }
         if($cui != $cui_anterior)
         {
             ?>
             <script type="text/javascript">
-            var cui = <?php echo $cui ?>;
             location.href="Mecanico-Read.php";
             </script>
             <?php
@@ -78,6 +84,9 @@
                <div class="row" style="float: center;">
                     <!-- Form Elements -->
                     <form role="form" method="post"> 
+                    <div class= <?php echo $alerta_tipo; ?> >
+                       <?php echo $alerta; ?>
+                    </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <?php echo $nombre ?>

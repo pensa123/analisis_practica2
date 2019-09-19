@@ -13,14 +13,17 @@ function query($query){
 }
 function insertar($query){
   include "Contrasena.php";
-  // creación de la conexión a la base de datos con mysql_connect()
-  $conexion = mysqli_connect( $servidor, $usuario, $password ) or die ("error");
-
-  // Selección del a base de datos a utilizar
-  $db = mysqli_select_db( $conexion, $basededatos ) or die ("error");
-  $resultado = mysqli_query( $conexion, $query ) or die ("error");
+  $resultado = "error";
+  try {
+    $conexion = mysqli_connect( $servidor, $usuario, $password );
+    $db = mysqli_select_db( $conexion, $basededatos );
+    $resultado = mysqli_query( $conexion, $query );
+  } catch (Exception $e) {
+    return "error";
+  }
   return  $resultado;
 }
+
 function Existe($query){
   $resul=query($query);
   if(mysqli_num_rows($resul)>0){
