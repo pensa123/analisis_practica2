@@ -67,3 +67,6 @@ CREATE TABLE detalleServicio(
     foreign key(entrada_vehiculo) references entrada_vehiculo(id)  ON DELETE CASCADE,
     foreign key(mecanico) references empleado(cui)  ON DELETE CASCADE
 );
+
+ALTER TABLE `db_taller`.`servicio` 
+ADD COLUMN `precio` FLOAT NULL AFTER `descripcion`;
