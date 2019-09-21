@@ -26,7 +26,7 @@ class Prueba extends PHPUnit_Framework_TestCase
     $pvehiculoAtt = new PruebaVehiculoAttend();
     $pvehiculoAtt->CorrerTodo();
     $pvehiculoCola = new PruebaVehiculoCola();
-    $pvehiculoCola ->CorrerTodo(); 
+    $pvehiculoCola ->CorrerTodo();
   }
 }
 ?>
