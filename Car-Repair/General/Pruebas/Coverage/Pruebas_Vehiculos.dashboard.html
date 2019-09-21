@@ -2,7 +2,7 @@
 <html lang="en">
  <head>
   <meta charset="UTF-8">
-  <title>Dashboard for C:\xampp\htdocs\Practica2\analisis_practica2\Car-Repair\General/Administrador</title>
+  <title>Dashboard for C:\xampp\htdocs\Practica2\analisis_practica2\Car-Repair\General/Pruebas/Vehiculos</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -18,7 +18,8 @@
      <div class="span12">
       <ul class="breadcrumb">
         <li><a href="index.html">C:\xampp\htdocs\Practica2\analisis_practica2\Car-Repair\General</a> <span class="divider">/</span></li>
-        <li><a href="Administrador.html">Administrador</a></li>
+        <li><a href="Pruebas.html">Pruebas</a> <span class="divider">/</span></li>
+        <li><a href="Pruebas_Vehiculos.html">Vehiculos</a></li>
         <li class="active">(Dashboard)</li>
 
       </ul>
@@ -82,7 +83,7 @@ $(document).ready(function() {
    labels: {style: {fontSize: '8px'}},
   },
   series: [{
-   data: [0,0,0,0,0,0,0,0,0,0,0,0]
+   data: [0,0,0,0,0,0,0,0,0,0,0,1]
   }],
  });
 
@@ -108,7 +109,7 @@ $(document).ready(function() {
    }
   },
   series: [{
-   data: [],
+   data: [[100,5,"<a href=\"Pruebas_Vehiculos_pruebaVehiculo.php.html#8\">PruebaVehiculo<\/a>"]],
    marker: {
     symbol: 'diamond'
    }

@@ -13,18 +13,18 @@ class PruebaServicios extends PHPUnit_Framework_TestCase
     //Crear servicio
     include_once (__DIR__."\..\..\BaseDatos\Consultas.php");
     $serv=new Servicio;
-    $this->assertEquals(true,$serv->CrearServicio("Prueba","Se rectifica si no existe algun daño dentro del motor"));
-    $this->assertEquals(true,$serv->CrearServicio("Prueba Delantera","Se alinean las llantas delanteras del vehiculo"));
+    $this->assertEquals(true,$serv->CrearServicio("Prueba","Se rectifica si no existe algun daño dentro del motor","20"));
+    $this->assertEquals(true,$serv->CrearServicio("Prueba Delantera","Se alinean las llantas delanteras del vehiculo","30"));
     //Fallas
-    $this->assertEquals(false,$serv->CrearServicio("Prueba Delantera","Esta no tiene que insertarce"));
+    $this->assertEquals(false,$serv->CrearServicio("Prueba Delantera","Esta no tiene que insertarce","100"));
   }
   public function testActualizarServicio(){
     include_once (__DIR__."\..\..\BaseDatos\Consultas.php");
     $serv=new Servicio;
     $consulta="select id from servicio order by id desc limit 1;";
     $id=UElemento($consulta);
-    $this->assertEquals(true,$serv->ActualizarServicio($id,"Cambio 1","Este es un cambio"));
-    $this->assertEquals(true,$serv->ActualizarServicio($id,"Prueba Delantera","Se le cambia el aceite del mas fino"));
+    $this->assertEquals(true,$serv->ActualizarServicio($id,"Cambio 1","Este es un cambio","30"));
+    $this->assertEquals(true,$serv->ActualizarServicio($id,"Prueba Delantera","Se le cambia el aceite del mas fino","40"));
   }
   public function testEliminarServicio(){
     include_once (__DIR__."\..\..\BaseDatos\Consultas.php");
