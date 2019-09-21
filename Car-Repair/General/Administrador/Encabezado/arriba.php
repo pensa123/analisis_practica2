@@ -41,6 +41,7 @@
             <li><a href="./ListaServicio.php">Maintenance </a></li>
             <li><a href="crudvehiculo.php">Vehiculos</a></li>
             <li><a href="vehiculos.php">Estado de vehiculos</a></li>
+            <li><a href="fac.php">Fac</a></li>
             <li><a href="../index.php">Logout</a></li>
           </ul>
         </nav>
