@@ -33,11 +33,14 @@ if(isset($_GET["id"])){
               <td>
                 <h4>Fecha</h4>
               </td>
+              <td>
+                <h4>Precio</h4>
+              </td>
             </tr>
           </thead>
           <tbody>
             <?php
-            $consulta="select vehiculo.placa,empleado.nombre,servicio.nombre,detalleservicio.descripcion,detalleservicio.fecha,detalleServicio.id from vehiculo,empleado,cliente,detalleservicio ,servicio,entrada_vehiculo
+            $consulta="select vehiculo.placa,empleado.nombre,servicio.nombre,detalleservicio.descripcion,detalleservicio.fecha,servicio.precio,detalleServicio.id from vehiculo,empleado,cliente,detalleservicio ,servicio,entrada_vehiculo
             where entrada_vehiculo.id=detalleservicio.entrada_vehiculo and servicio.id=detalleservicio.servicio and detalleservicio.mecanico=empleado.cui
             and entrada_vehiculo.cliente=cliente.cui and cliente.cui=".$_SESSION["CUI"]." and detalleservicio.servicio=servicio.id and vehiculo.placa=entrada_vehiculo.vehiculo;";
             $resul=query($consulta);
@@ -48,7 +51,8 @@ if(isset($_GET["id"])){
               printf("<td>%s</td>",$cl[2]);
               printf("<td>%s</td>",$cl[3]);
               printf("<td>%s</td>",$cl[4]);
-              //printf("<td>%s</td>",$cl[5]);
+              printf("<td>%s</td>",$cl[5]);
+              //printf("<td>%s</td>",$cl[6]);
               //printf("<td>%s</td>",$cl[6]);
 
               printf("</tr>");
