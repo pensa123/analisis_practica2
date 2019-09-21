@@ -45,7 +45,7 @@ function editCliente($cui, $nombre, $nickname, $correo, $pass, $direccion, $tele
     try {
         $var = sprintf(
             //$var = sprintf("INSERT INTO cliente values('%d' , '%s', '%s' , %s , %s , %s , %s , %s);", $cui, $nombre, $nickname, $correo, $pass, $direccion, $telefono, $nit);
-            "UPDATE CLIENTE SET nombre = '%s' , nickname = %d, correo= '%s', pass = '%s' , direccion = '%s' , telefono = '%s' , nit = '%s'  where cui = '%s';",
+            "UPDATE CLIENTE SET nombre = '%s' , nickname = %s, correo= '%s', pass = '%s' , direccion = '%s' , telefono = '%s' , nit = '%s'  where cui = '%d';",
             //"UPDATE VEHICULO SET marca = '%s' , modelo = '%s' , anio_fabricacion = %d where placa = '%s';",
             //cui = '%d' , 
             $nombre,
@@ -58,11 +58,13 @@ function editCliente($cui, $nombre, $nickname, $correo, $pass, $direccion, $tele
             $cui
         );
 
-        $consulta = "UPDATE cliente SET cliente.nombre=\"".$nombre."\", cliente.nickname=\"".$nickname."\",
-        cliente.correo=\"".$correo."\", cliente.pass=\"".$pass."\", cliente.direccion=\"".$direccion."\", cliente.telefono=\"".$telefono."\",
-        cliente.nit=\"".$nit."\" where cliente.cui=$cui;";
+        $consulta = "UPDATE cliente SET cliente.nombre=\"".$nombre."\", cliente.nickname=\"".$nickname."\", cliente.correo=\"".$correo."\", cliente.pass=\"".$pass."\", cliente.direccion=\"".$direccion."\", cliente.telefono=\"".$telefono."\", cliente.nit=\"".$nit."\" WHERE cliente.cui=$cui;";
+        //$consulta = "UPDATE cliente SET (cui,nombre,nickname,correo, pass, direccion, telefono, nit) VALUES ($cui, \"$nombre\", \"$nickname\", \"$correo\", \"$pass\", \"$direccion\", \"$telefono\", \"$nit\");";
+        //$consulta="UPDATE noticia SET noticia.nombre_noticia=\"".$titulo."\", noticia.texto=\"".$texto."\" WHERE noticia.id=$id;";
+        // WHERE noticia.id=$id;";
          //(cui,nombre,nickname,correo, pass, direccion, telefono, nit) VALUES ($cui, \"$nombre\", \"$nickname\", \"$correo\", \"$pass\", \"$direccion\", \"$telefono\", \"$nit\");";        
         //$consulta="UPDATE noticia SET noticia.nombre_noticia=\"".$titulo."\", noticia.texto=\"".$texto."\" WHERE noticia.id=$id;";
+        //echo $consulta;
         query($consulta);
         return true;
     } catch (Exception $e) { }

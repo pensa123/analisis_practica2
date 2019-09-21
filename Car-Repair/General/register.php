@@ -21,17 +21,19 @@ if(isset($_GET["add"])){
     crearCliente($_GET["cui"] , $_GET["nombre"] , $_GET["nickname"] , $_GET["correo"] , $_GET["pass"] , $_GET["direccion"] , $_GET["telefono"] , $_GET["nit"]);
 }else if(isset($_GET["edit"])){
   //function editCliente($cui, $nombre, $nickname, $correo, $pass, $direccion, $telefono, $nit)
-    editCliente($_GET["cui"] , $_GET["nombre"] , $_GET["nickname"] , $_GET["correo"] , $_GET["pass"] , $_GET["direccion"] , $_GET["telefon"] , $_GET["nit"]);
+    editCliente($_GET["cui"] , $_GET["nombre"] , $_GET["nickname"] , $_GET["correo"] , $_GET["pass"] , $_GET["direccion"] , $_GET["telefono"] , $_GET["nit"]);
 }else if(isset($_GET["ed"])){
-    $consulta = obtenerCliente("placa = '". $_GET["ed"] . "';");
+    $consulta = obtenerCliente("cui = '". $_GET["ed"] . "';");
+    echo " equis ";
     while ($res = mysqli_fetch_array($consulta)) {
         $edit = true; 
         $cui = $res["cui"];
+        echo $cui;
         $nombre = $res["nombre"];
         $nickname = $res["nickname"];
         $correo = $res["correo"];
         $pass = $res["pass"];
-        $direccion = $res["pass"];
+        $direccion = $res["direccion"];
         $telefono = $res["telefono"];
         $nit = $res["nit"];
     }
@@ -103,7 +105,7 @@ if(isset($_GET["add"])){
             <div class="form-group row">
                 <label for="staticEmail" class="col-sm-2 col-form-label wh">telefono</label>
                 <div class="col-sm-10">
-                    <input type="number" name="telefono" class="form-control-plaintext" value="<?php echo $telefono; ?>">
+                    <input type="text" name="telefono" class="form-control-plaintext" value="<?php echo $telefono; ?>">
                 </div>
             </div>
 
@@ -115,7 +117,8 @@ if(isset($_GET["add"])){
             </div>
         </div>
     </div>
-    <button type="submit" name="add" value="e" class="btn btn-primary mb-2">Guardar C</button>
+    <button type="submit" name="<?php echo $edit ? "edit" : "add"; ?>" value="e" class="btn btn-primary mb-2"><?php echo $edit ? "Editar" : "Guardar"; ?></button>
+    <!--<button type="submit" name="add" value="e" class="btn btn-primary mb-2">Guardar C</button>-->
 
 </form>
 
