@@ -158,8 +158,8 @@ if(isset($_GET["add"])){
                                 <td><?php echo $res["telefono"] ?></td>
                                 <td><?php echo $res["nit"] ?></td>
                                 <td>
-                                    <a class="btn btn-info" href="crudvehiculo.php?ed=<?php echo $res["nickname"]; ?>">Editar</a>
-                                    <a class="btn btn-danger" href="crudvehiculo.php?el=<?php echo $res["nickname"]; ?>">Eliminar</a>
+                                    <a class="btn btn-info" href="register.php?ed=<?php echo $res["cui"]; ?>">Editar</a>
+                                    <a class="btn btn-danger" href="register.php?el=<?php echo $res["cui"]; ?>">Eliminar</a>
 
                                 </td>
 

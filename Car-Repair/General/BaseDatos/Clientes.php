@@ -2,11 +2,12 @@
 include_once("Consultas.php");
 
 
-function eliminarCliente($nickname)
+function eliminarCliente($cui)
 {
     try {
-        $var = sprintf("DELETE from cliente where nickname = '%s'; ", $nickname);
-        query($var);
+        $var = sprintf("DELETE from cliente where cui = '%d'; ", $cui);
+        $consulta="DELETE FROM cliente WHERE cui=$cui;";
+        query($consulta);
         return true;
     } catch (Exception $e) { }
 }
@@ -56,7 +57,13 @@ function editCliente($cui, $nombre, $nickname, $correo, $pass, $direccion, $tele
             $nit,
             $cui
         );
-        query($var);
+
+        $consulta = "UPDATE cliente SET cliente.nombre=\"".$nombre."\", cliente.nickname=\"".$nickname."\",
+        cliente.correo=\"".$correo."\", cliente.pass=\"".$pass."\", cliente.direccion=\"".$direccion."\", cliente.telefono=\"".$telefono."\",
+        cliente.nit=\"".$nit."\" where cliente.cui=$cui;";
+         //(cui,nombre,nickname,correo, pass, direccion, telefono, nit) VALUES ($cui, \"$nombre\", \"$nickname\", \"$correo\", \"$pass\", \"$direccion\", \"$telefono\", \"$nit\");";        
+        //$consulta="UPDATE noticia SET noticia.nombre_noticia=\"".$titulo."\", noticia.texto=\"".$texto."\" WHERE noticia.id=$id;";
+        query($consulta);
         return true;
     } catch (Exception $e) { }
 }
