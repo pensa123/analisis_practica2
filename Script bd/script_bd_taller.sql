@@ -16,6 +16,21 @@ CREATE TABLE empleado(
     estado int -- 1 si todo esta bien, 0 si esta de vacaciones, -1 si ya no trabaja en el lugar
 );
 
+--agregando la tabla de facturación 
+
+CREATE TABLE factura(
+	id bigint primary key,
+    empleado varchar(255),
+    cliente varchar(255),
+    servicio varchar(255),
+    descripcion varchar(255),
+    precio varchar(255),
+    subtotal varchar(255),
+    fecha date,
+    tipo int,  
+    estado int 
+);
+
 CREATE TABLE cliente(
 	cui BIGINT primary key,
     nombre varchar(255),
@@ -67,3 +82,6 @@ CREATE TABLE detalleServicio(
     foreign key(entrada_vehiculo) references entrada_vehiculo(id)  ON DELETE CASCADE,
     foreign key(mecanico) references empleado(cui)  ON DELETE CASCADE
 );
+
+ALTER TABLE `db_taller`.`servicio` 
+ADD COLUMN `precio` FLOAT NULL AFTER `descripcion`;

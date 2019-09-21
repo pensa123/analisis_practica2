@@ -41,8 +41,10 @@
             <li><a href="">About Us</a></li>
             <li><a href="./ListaServicio.php">Maintenance </a></li>
             <li><a href="./ListaDetalleServicio.php">Repair</a></li>
-            <li><a href="">Price List</a></li>
-            <li><a href="">Locations</a></li>
+           
+            <li><a href="crudvehiculo.php">Vehiculos</a></li>
+            <li><a href="vehiculos.php">Estado de vehiculos</a></li>
+           
             <li><a href="../index.php">Logout</a></li>
           </ul>
         </nav>
