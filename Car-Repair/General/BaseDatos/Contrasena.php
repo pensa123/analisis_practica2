@@ -1,6 +1,6 @@
 <?php
 $usuario = "root";
-$password = "85296473";
+$password = "";
 $servidor = "localhost:3306";
 $basededatos = "db_taller";
  ?>

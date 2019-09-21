@@ -32,10 +32,11 @@
             <div class="indent"> <span class="address">8901 Marmora Road, Glasgow, D04 89GR</span> <span class="phone">Tel: +502 2265 5698</span> </div>
           </div>
         </div>
-        <nav>
+        <nav>     
           <ul class="menu">
             <li><a class="active" href="index.php">Home</a></li>
             <li><a href="Login.php">Login</a></li>
+            <li><a href="register.php">Register</a></li>
           </ul>
         </nav>
         <div class="slider-wrapper">
