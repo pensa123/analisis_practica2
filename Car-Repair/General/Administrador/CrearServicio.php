@@ -31,6 +31,13 @@ include "../BaseDatos/Consultas.php";
         <textarea class="form-control" rows="10" id="y" cols="100" name="DESCRIPCION" aria-label="With textarea"></textarea>
       </div>
       <br>
+      <h3>Precio  </h3>
+      <div class="input-group">
+        <div class="input-group-prepend">
+        </div>
+        <input type="number" id="w" name="PRECIO" value="0.00">
+      </div>
+      <br>
       <input type="submit" id="b" class="btn btn-info" name="submit" value="Agregar">
     </form>
   </div>
@@ -39,7 +46,7 @@ include "../BaseDatos/Consultas.php";
 if(isset($_GET['id'])){
 
   $id=$_GET["id"];
-  $consulta="Select nombre,descripcion from servicio where id=\"".$id."\";";
+  $consulta="Select nombre,descripcion,precio from servicio where id=\"".$id."\";";
   $res=query($consulta);
   $cl=mysqli_fetch_array($res);
   ?>
@@ -47,6 +54,7 @@ if(isset($_GET['id'])){
   //alert(<?php echo $consulta; ?>);
   document.getElementById("x").value = "<?php echo $cl[0]; ?>";
   document.getElementById("y").value="<?php echo $cl[1]; ?>";
+  document.getElementById("w").value="<?php echo $cl[2]; ?>"
   document.getElementById("b").value="Actualizar";
   </script>
   <?php
@@ -58,6 +66,7 @@ if(isset($_POST["submit"])){
 
   $nombre=$_POST["NOMBRE"];
   $descripcion=$_POST["DESCRIPCION"];
+  $precio=$_POST["PRECIO"];
   if(isset($id)){
     //para actualizar
     $consulta="Select * from servicio where nombre=\"".$nombre."\" AND id <> \"".$id."\";";
@@ -74,9 +83,9 @@ if(isset($_POST["submit"])){
   }else{
     $ser=new Servicio;
     if(isset($id)){
-      $resultado=$ser->ActualizarServicio($id,$nombre,$descripcion);
+      $resultado=$ser->ActualizarServicio($id,$nombre,$descripcion,$precio);
     }else{
-      $resultado=$ser->CrearServicio($nombre,$descripcion);
+      $resultado=$ser->CrearServicio($nombre,$descripcion,$precio);
     }
     ?>
 

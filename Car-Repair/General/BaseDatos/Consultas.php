@@ -50,11 +50,11 @@ function UElemento($query){
   return $cl[0];
 }
 class Servicio{
-  public function CrearServicio($nombre,$descripcion){
+  public function CrearServicio($nombre,$descripcion,$precio){
     $consulta1="Select * from servicio where nombre=\"".$nombre."\";";
     $res=Existe($consulta1);
     if($res){return false;}
-    $consulta="Insert into servicio(nombre,descripcion) values (\"".$nombre."\" ,\"".$descripcion."\");";
+    $consulta="Insert into servicio(nombre,descripcion,precio) values (\"".$nombre."\" ,\"".$descripcion."\",\"".$precio."\");";
     $res=query($consulta);
     if($res==="algo salio mal"){
       return false;
@@ -62,8 +62,8 @@ class Servicio{
     return true;
   }
 
-  public function ActualizarServicio($id,$nombre,$descripcion){
-    $consulta="Update servicio set nombre=\"".$nombre."\" , descripcion=\"".$descripcion."\" where id=\"".$id."\";";
+  public function ActualizarServicio($id,$nombre,$descripcion,$precio){
+    $consulta="Update servicio set nombre=\"".$nombre."\" , descripcion=\"".$descripcion."\" ,precio=\"".$precio."\" where id=\"".$id."\";";
     $res=query($consulta);
     if($res==="algo salio mal"){
       return false;

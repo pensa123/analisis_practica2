@@ -37,14 +37,20 @@
         </div>
         <nav>
           <ul class="menu">
-            <li><a class="active" href="index.html">Home</a></li>
-            <li><a href="">About Us</a></li>
+            <li><a class="active" href="index.php">Home</a></li>
+            <li><a href="index.php">About Us</a></li>
             <li><a href="./ListaDetalleXServicio.php">Maintenance </a></li>
+<<<<<<< Updated upstream
            
             
             <li><a href="vehiculos.php">Estado de vehiculos</a></li>
       
 
+=======
+            <li><a href="">Repair</a></li>
+            <li><a href="ListaServicio.php">Price List</a></li>
+            <li><a href="">Locations</a></li>
+>>>>>>> Stashed changes
             <li><a href="../index.php">Logout</a></li>
           </ul>
         </nav>
