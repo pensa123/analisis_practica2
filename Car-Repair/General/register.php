@@ -115,7 +115,7 @@ if(isset($_GET["add"])){
             </div>
         </div>
     </div>
-    <button type="submit" name="<?php echo $edit ? "edit" : "add"; ?>" value="e" class="btn btn-primary mb-2"><?php echo $edit ? "Editar" : "Guardar"; ?></button>
+    <button type="submit" name="add" value="e" class="btn btn-primary mb-2">Guardar C</button>
 
 </form>
 

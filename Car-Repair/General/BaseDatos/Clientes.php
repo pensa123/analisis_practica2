@@ -14,8 +14,15 @@ function eliminarCliente($nickname)
 function crearCliente($cui, $nombre, $nickname, $correo, $pass, $direccion, $telefono, $nit)
 {
     try {
-        $var = sprintf("INSERT INTO cliente values('%d' , '%s', '%s' , %s , %s , %s , %s , %s);", $cui, $nombre, $nickname, $correo, $pass, $direccion, $telefono, $nit);
-        query($var);
+        //$consulta="INSERT INTO noticia (id,nombre_noticia,texto,creador,imagen) VALUES(NULL,\"$titulo\",\"$texto\",$user,\"$imagen\");";
+	    //$resultado = mysqli_query( $conn, $consulta ) or die ( " algo salio mal");
+	    //return true;
+        $consulta = "INSERT INTO cliente (cui,nombre,nickname,correo, pass, direccion, telefono, nit) VALUES ($cui, \"$nombre\", \"$nickname\", \"$correo\", \"$pass\", \"$direccion\", \"$telefono\", \"$nit\");";
+        //$var = sprintf("INSERT INTO cliente values('%d' , '%s', '%s' , %s , %s , %s , %s , %s);", $cui, $nombre, $nickname, $correo, $pass, $direccion, $telefono, $nit);
+        //resultado = mysqli_query($conn,$consulta) or die ("algo salio mal");
+
+        //echo $cui;
+        query($consulta);
         return true;
     } catch (Exception $e) { }
 }
